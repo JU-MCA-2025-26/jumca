@@ -9,6 +9,10 @@ build/
 .tsbuildinfo
 *.tsbuildinfo
 
+# Editor settings
+.vscode/*
+.zed/*
+
 apps/server/src/generated/
 # Keep migrations committed
 !apps/server/prisma/migrations/
@@ -27,7 +31,6 @@ pnpm-debug.log*
 
 .DS_Store
 Thumbs.db
-.vscode/*
 !.vscode/extensions.json
 .idea/
 *.suo

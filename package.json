@@ -15,6 +15,7 @@
   "allowScripts": {
     "@prisma/engines": true,
     "prisma": true,
-    "bcrypt": true
+    "bcrypt": true,
+    "esbuild": true
   }
 }
