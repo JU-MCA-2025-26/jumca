@@ -1,4 +1,5 @@
 {
+  "extends": "../../tsconfig.base.json",
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
@@ -33,15 +34,10 @@
     // "noPropertyAccessFromIndexSignature": true,
 
     // Recommended Options
-    "strict": true,
     "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "resolveJsonModule": true,
     "allowJs": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
   }
 }

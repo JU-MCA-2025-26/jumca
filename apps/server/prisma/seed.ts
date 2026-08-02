@@ -30,13 +30,13 @@ async function main() {
 
       email: "admin@jumca.com",
 
-      rollNumber: "ADMIN",
+      rollNumber: "002510503000",
 
       password,
 
       role: $Enums.Role.ADMIN,
 
-      batch: "N/A"
+      batch: "2025-27"
 
     }
 

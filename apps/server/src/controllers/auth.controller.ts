@@ -1,12 +1,12 @@
 import type { Request, Response } from "express";
-import authService from "./auth.service.js";
-import { asyncHandler } from "../utils/asyncHandler.js";
+import authService from "@server/services/auth.service";
+import { asyncHandler } from "@server/utils/asyncHandler";
 import "dotenv/config";
 
 export const login = asyncHandler(
   async (
     req: Request,
-    res: Response
+    res: Response,
   ) => {
     const { identifier, password } = req.body;
 

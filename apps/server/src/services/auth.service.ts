@@ -1,10 +1,10 @@
 import bcrypt from "bcrypt";
-import prisma from "../config/prisma.js";
+import prisma from "@server/config/prisma";
 import {
   generateAccessToken,
   generateRefreshToken,
-} from "../config/jwt.js";
-import { ApiError } from "../utils/ApiError.js";
+} from "@server/config/jwt";
+import { ApiError } from "@server/utils/ApiError";
 
 export class AuthService {
   async login(identifier: string, password: string) {

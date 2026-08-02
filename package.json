@@ -1,0 +1,20 @@
+{
+  "name": "jumca-portal",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "client": "npm --workspace=apps/client run dev",
+    "server": "npm --workspace=apps/server run dev",
+    "dev": "npm run dev --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present"
+  },
+  "allowScripts": {
+    "@prisma/engines": true,
+    "prisma": true,
+    "bcrypt": true
+  }
+}

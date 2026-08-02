@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "moduleDetection": "force",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "paths": {
+      "@portal/*": ["./*"],
+      "@shared/*": ["./apps/shared/src/*"],
+      "@client/*": ["./apps/client/src/*"],
+      "@server/*": ["./apps/server/src/*"]
+    }
+  }
+}

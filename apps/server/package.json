@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "npx tsx --watch src/server.ts",
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
@@ -23,11 +24,6 @@
     "multer": "^2.2.0",
     "prisma": "^7.9.1",
     "zod": "^4.4.3"
-  },
-  "allowScripts": {
-    "bcrypt@6.0.0": true,
-    "@prisma/engines@7.9.1": true,
-    "prisma@7.9.1": true
   },
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",
