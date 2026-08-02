@@ -1,18 +1,86 @@
-# JUMCA Portal
-Initialised the project as a monorepo for the JUMCA Portal. 
-Frontend is built with React and TypeScript, while the backend is powered by Node.js, TypeScript, and Express. The project structure is organized to facilitate scalability and maintainability.
+# #JUMCA — Department Portal
 
-To start building the project, follow these steps:
-- Fork the repository to your GitHub account.
-- Clone the repository to your local machine.
-- Navigate to the project directory.
-- Install the dependencies for both frontend and backend by using `npm install`.
-- Set up the environment variables by creating `.env` files in `apps/client` and `apps/server`. (The `.env.example` files in each directory can be used as a reference for the required environment variables.)
-- Database setup 
-  - If you have new database changes to perform, modify the `apps/server/prisma/schema.prisma` file and run `npx prisma migrate dev` in the backend directory.
-  - Set up prisma by running `npx prisma generate` in the backend directory.
-- Start the development server for the frontend and backend using `npm run dev` in project root. 
+> **amra kara?** huhh hahh, huhh hahh.
 
-From my experience on linux, I have seen that if you don't change your postgresql configuration file in '/var/lib/pgsql/data/data/pg_hba.conf' to make sure that the authentication method is set to 'scram-sha-256' for the user you are using to connect to the database, you will get an error when trying to connect to the database. So make sure to change that configuration file and restart the postgresql service.
+The official web portal for the JU MCA, Department of Computer Science & Engineering - your notes, placements, and journey, all in one place.
 
-The `prisma/seed.ts` file is used to seed the database with initial data. So far, it only seeds the `users` table with a default admin user. You can modify this file to add more seed data as needed. Run it with the command `npx ts-node prisma/seed.ts` in the backend directory.
+---
+
+## Monorepo structure
+
+```
+jumca-portal/
+├── apps/
+│   ├── client/          # React 19 + TypeScript + Tailwind v4 (Vite)
+│   └── server/          # Node.js + Express 5 + TypeScript + Prisma
+├── packages/
+│   └── shared/          # Shared types, validators, constants (@jumca/shared)
+├── docs/
+│   ├── database.dbml    # DB schema diagram source
+│   ├── endpoints.md     # API endpoint documentation (add to this as you build)
+│   └── pages.md         # Frontend page documentation (add to this as you build)
+├── tsconfig.base.json   # Shared TS config extended by each workspace
+└── package.json         # Root workspace: npm workspaces
+```
+
+## Path aliases
+
+| Alias       | Resolves to             |
+| ----------- | ----------------------- |
+| `@shared/*` | `packages/shared/src/*` |
+| `@client/*` | `apps/client/src/*`     |
+| `@server/*` | `apps/server/src/*`     |
+
+## Quick start
+
+```bash
+# 1. Install all dependencies (run from repo root)
+npm install
+
+# 2. Copy env templates and fill in values
+cp apps/server/.env.example apps/server/.env
+cp apps/client/.env.example apps/client/.env.local
+
+# 3. Generate Prisma client and run migrations
+cd apps/server
+npm run db:generate
+npm run db:migrate    # creates tables
+npm run db:seed       # seeds admin user
+
+# 4. Start both dev servers from repo root
+cd ../..
+npm run dev           # client → :5173  |  server → :5000
+
+# Or start individually:
+npm run client        # frontend only
+npm run server        # backend only
+```
+
+## Database commands (run from apps/server)
+
+```bash
+npm run db:generate   # regenerate Prisma client after schema changes
+npm run db:migrate    # create and apply a new migration
+npm run db:seed       # seed initial data (admin user)
+npm run db:studio     # open Prisma Studio in browser
+```
+
+## Default admin credentials (seeded)
+
+| Field        | Value                              |
+| ------------ | ---------------------------------- |
+| Email / Roll | `admin@jumca.com` / `002510503000` |
+| Password     | `admin123`                         |
+
+> Change the password immediately after first login in production.
+
+## Contributing
+
+See the Developer Guide (in your project docs) for:
+
+- Commit conventions
+- Branch strategy
+- Adding new API endpoints
+- Adding new frontend pages
+
+---

@@ -18,7 +18,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Path aliases — override base for client-relative resolution */
+    "baseUrl": "../..",
+    "paths": {
+      "@shared/*": ["./packages/shared/src/*"],
+      "@client/*": ["./apps/client/src/*"]
+    }
   },
   "include": ["src"]
 }

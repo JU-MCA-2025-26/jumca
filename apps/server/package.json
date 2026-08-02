@@ -1,20 +1,21 @@
 {
-  "name": "server",
+  "name": "@jumca/server",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
+  "type": "module",
   "main": "src/server.ts",
   "scripts": {
-    "dev": "npx tsx --watch src/server.ts",
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "oxlint",
-    "lint:fix": "oxlint --fix"
+    "dev":     "tsx --watch src/server.ts",
+    "build":   "tsc",
+    "lint":    "oxlint",
+    "lint:fix": "oxlint --fix",
+    "db:generate": "prisma generate --config prisma.config.ts",
+    "db:migrate":  "prisma migrate dev --config prisma.config.ts",
+    "db:seed":     "tsx prisma/seed.ts",
+    "db:studio":   "prisma studio --config prisma.config.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
   "dependencies": {
+    "@jumca/shared": "*",
     "@prisma/adapter-pg": "^7.9.1",
     "@prisma/client": "^7.9.1",
     "bcrypt": "^6.0.0",
@@ -35,6 +36,7 @@
     "@types/node": "^26.1.2",
     "dotenv": "^17.4.2",
     "oxlint": "^1.76.0",
+    "tsx": "^4.20.3",
     "typescript": "^7.0.2"
   }
 }

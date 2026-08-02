@@ -1,11 +1,10 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "es6",
+    "target": "esnext",
     "module": "esnext",
     "moduleResolution": "bundler",
-    "declaration": true,
-    "outDir": "dist"
+    "noEmit": true
   },
   "include": ["src"]
 }

@@ -6,11 +6,11 @@
     "packages/*"
   ],
   "scripts": {
+    "dev":    "npm run dev   --workspaces --if-present",
+    "build":  "npm run build --workspaces --if-present",
+    "lint":   "npm run lint  --workspaces --if-present",
     "client": "npm --workspace=apps/client run dev",
-    "server": "npm --workspace=apps/server run dev",
-    "dev": "npm run dev --workspaces --if-present",
-    "build": "npm run build --workspaces --if-present",
-    "lint": "npm run lint --workspaces --if-present"
+    "server": "npm --workspace=apps/server run dev"
   },
   "allowScripts": {
     "@prisma/engines": true,
