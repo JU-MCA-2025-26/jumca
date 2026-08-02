@@ -6,8 +6,8 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "npm run dev   --workspaces --if-present",
-    "build": "npm run build --workspaces --if-present",
+    "dev": "turbo dev",
+    "build": "turbo build",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "format": "prettier . --write",
@@ -28,6 +28,13 @@
     "esbuild": true
   },
   "devDependencies": {
-    "prettier": "^3.9.6"
+    "prettier": "^3.9.6",
+    "turbo": "^2.10.8"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "version": "11.16.0"
+    }
   }
 }
