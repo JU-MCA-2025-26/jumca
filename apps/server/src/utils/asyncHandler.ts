@@ -6,7 +6,7 @@ export const asyncHandler =
       req: Request,
       res: Response,
       next: NextFunction
-    ) => Promise<any>
+    ) => Promise<void>
   ) =>
   (
     req: Request,
