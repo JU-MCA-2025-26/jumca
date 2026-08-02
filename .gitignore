@@ -9,6 +9,9 @@ build/
 .tsbuildinfo
 *.tsbuildinfo
 
+.turbo/cache
+*.turbo
+
 # Editor settings
 # .vscode/*
 # .zed/*

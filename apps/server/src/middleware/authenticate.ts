@@ -1,6 +1,6 @@
 import type { Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-import type { AuthRequest } from "@server/types/AuthRequest";
+import type { AuthRequest } from "@/types/AuthRequest.js";
 
 export const authenticate = (req: AuthRequest, res: Response, next: NextFunction) => {
   const token = req.headers.authorization?.replace(/^Bearer\s+/, "");

@@ -11,3 +11,4 @@ apps/server/generated
 *.config.mjs
 
 *.d.ts
+.turbo/cache

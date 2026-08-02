@@ -2,8 +2,8 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
-import authRoutes from "@server/routes/auth.routes";
-import { errorHandler } from "@server/middleware/errorHandler";
+import authRoutes from "@/routes/auth.routes.js";
+import { errorHandler } from "@/middleware/errorHandler.js";
 
 const app = express();
 

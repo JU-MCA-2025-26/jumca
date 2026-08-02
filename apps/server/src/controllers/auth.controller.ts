@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
-import authService from "@server/services/auth.service";
-import { asyncHandler } from "@server/utils/asyncHandler";
+import authService from "@/services/auth.service.js";
+import { asyncHandler } from "@/utils/asyncHandler.js";
 import "dotenv/config";
 
 export const login = asyncHandler(async (req: Request, res: Response) => {

@@ -1,6 +1,6 @@
 import type { Response, NextFunction } from "express";
-import type { AuthRequest } from "@server/types/AuthRequest";
-import { Role } from "@server/generated/client";
+import type { AuthRequest } from "@/types/AuthRequest.js";
+import { Role } from "@/generated/enums.js";
 
 export const authorize =
   (...roles: Role[]) =>

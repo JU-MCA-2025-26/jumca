@@ -1,7 +1,6 @@
+import { jsx as _jsx } from "react/jsx-runtime";
 import LandingPage from "./components/layout/LandingPage.tsx";
-
 function App() {
-  return <LandingPage />;
+    return _jsx(LandingPage, {});
 }
-
 export default App;
