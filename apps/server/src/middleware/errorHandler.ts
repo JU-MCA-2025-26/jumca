@@ -3,9 +3,9 @@ import { ApiError } from "@server/utils/ApiError";
 
 export const errorHandler = (
   err: Error,
-  req: Request,
+  _req: Request,
   res: Response,
-  next: NextFunction
+  _next: NextFunction
 ) => {
   if (err instanceof ApiError) {
     return res.status(err.statusCode).json({
