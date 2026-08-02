@@ -10,8 +10,8 @@ build/
 *.tsbuildinfo
 
 # Editor settings
-.vscode/*
-.zed/*
+# .vscode/*
+# .zed/*
 
 apps/server/src/generated/
 # Keep migrations committed
