@@ -1,0 +1,116 @@
+// Use a website like dbdiagram.io to visualize this DBML markdown
+
+Enum Role {
+  STUDENT
+  ALUMNI
+  ADMIN
+}
+
+Enum ResourceCategory {
+  NOTES
+  PREVIOUS_YEAR_QUESTION
+  ASSIGNMENT
+  REFERENCE_BOOK
+  OTHER
+}
+
+Table User {
+  id varchar [pk, note: 'cuid() default']
+  rollNumber varchar [unique, not null]
+  email varchar [unique, not null]
+  password varchar [not null]
+  fullName varchar [not null]
+  role Role [not null]
+  batch varchar [not null]
+  createdAt timestamp [default: `now()`]
+  updatedAt timestamp
+}
+
+Table Profile {
+  id varchar [pk, note: 'cuid() default']
+  bio varchar
+  github varchar
+  leetcode varchar
+  gfg varchar
+  codeforces varchar
+  userId varchar [unique, not null]
+}
+
+Table Course {
+  id varchar [pk, note: 'cuid() default']
+  name varchar [unique, not null]
+  createdAt timestamp [default: `now()`]
+  updatedAt timestamp
+}
+
+Table Resource {
+  id varchar [pk, note: 'cuid() default']
+  title varchar [not null]
+  description varchar
+  fileUrl varchar [not null]
+  category ResourceCategory [not null]
+  approved boolean [default: false]
+  downloads integer [default: 0]
+  courseId varchar [not null]
+  uploaderId varchar [not null]
+  createdAt timestamp [default: `now()`]
+  updatedAt timestamp
+}
+
+Table Company {
+  id varchar [pk, note: 'cuid() default']
+  name varchar [unique, not null]
+  createdAt timestamp [default: `now()`]
+  updatedAt timestamp
+}
+
+Table InterviewExperience {
+  id varchar [pk, note: 'cuid() default']
+  role varchar [not null]
+  ctc varchar
+  outcome varchar [not null]
+  narrative varchar [not null]
+  approved boolean [default: false]
+  companyId varchar [not null]
+  authorId varchar [not null]
+  createdAt timestamp [default: `now()`]
+  updatedAt timestamp
+}
+
+Table InterviewRound {
+  id varchar [pk, note: 'cuid() default']
+  roundName varchar [not null]
+  orderNumber integer [not null]
+  description varchar
+  interviewExperienceId varchar [not null]
+}
+
+Table Question {
+  id varchar [pk, note: 'cuid() default']
+  text varchar [not null]
+  solution varchar
+  roundId varchar [not null]
+}
+
+// Relationships
+
+// One-to-One: Profile -> User
+Ref: Profile.userId - User.id
+
+// Many-to-One: Resource -> Course
+Ref: Resource.courseId > Course.id
+
+// Many-to-One: Resource -> User
+Ref: Resource.uploaderId > User.id
+
+// Many-to-One: InterviewExperience -> Company
+Ref: InterviewExperience.companyId > Company.id
+
+// Many-to-One: InterviewExperience -> User
+Ref: InterviewExperience.authorId > User.id
+
+// Many-to-One: InterviewRound -> InterviewExperience
+Ref: InterviewRound.interviewExperienceId > InterviewExperience.id
+
+// Many-to-One: Question -> InterviewRound
+Ref: Question.roundId > InterviewRound.id
