@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: Developer Guide
+    url: https://docs.google.com/document/d/1-u3ecR1Jyb7NFmagVts9pS57hZ-VL1HtnP-iFFjZP-Q
+    about: Read the Developer Guide before opening an issue.
+
+  - name: Software Requirements Specification (SRS)
+    url: https://docs.google.com/document/d/19txSZEnX88nwtRfhWt-EpF2n_2ZI7tq-
+    about: Check whether the requested feature already exists in the SRS.
+
+  - name: Discussions
+    url: https://github.com/ju-mca-2025-26/jumca-portal/discussions
+    about: Ask questions or discuss ideas before opening an issue.

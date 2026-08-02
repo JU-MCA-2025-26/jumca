@@ -5,14 +5,11 @@ import { resolve } from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
+  plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
-      "@client": resolve(__dirname, "./src"),
-      "@shared": resolve(__dirname, "../../packages/shared/src"),
+      "@client": resolve(import.meta.dirname, "./src"),
+      "@shared": resolve(import.meta.dirname, "../../packages/shared/src"),
     },
   },
   server: {

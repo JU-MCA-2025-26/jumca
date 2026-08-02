@@ -8,10 +8,10 @@
     "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
-      "@portal/*":  ["./*"],
-      "@shared/*":  ["./packages/shared/src/*"],
-      "@client/*":  ["./apps/client/src/*"],
-      "@server/*":  ["./apps/server/src/*"]
+      "@portal/*": ["./*"],
+      "@shared/*": ["./packages/shared/src/*"],
+      "@client/*": ["./apps/client/src/*"],
+      "@server/*": ["./apps/server/src/*"]
     }
   }
 }

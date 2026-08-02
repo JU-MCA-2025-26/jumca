@@ -1,6 +1,7 @@
 When you are done making a frontend page, add it to this file with the following format:
 
 ### Page Name
+
 - **URL**: /page/url
 - **Description**: A brief description of what the page does.
 - **Components Used**: A list of the main components used in the page, including their purpose and any relevant props.

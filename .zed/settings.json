@@ -1,9 +1,7 @@
 {
   "languages": {
     "CSS": {
-      "language_servers": [
-        "tailwindcss-intellisense-css",
-      ]
+      "language_servers": ["tailwindcss-intellisense-css"]
     }
   }
 }

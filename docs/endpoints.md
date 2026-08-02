@@ -1,6 +1,7 @@
 When you are done making a backend endpoint, add it to this file with the following format:
 
 ### Endpoint Name
+
 - **Method**: GET/POST/PUT/DELETE
 - **URL**: /api/endpoint/url
 - **Description**: A brief description of what the endpoint does.
@@ -8,6 +9,7 @@ When you are done making a backend endpoint, add it to this file with the follow
 - **Response**: A description of the expected response, including any relevant status codes and response body structure.
 - **Authentication**: (if applicable) A description of the authentication requirements for the endpoint, including any required headers or tokens.
 - **Example Request**
+
 ```
 curl -X METHOD "http://localhost:PORT/api/endpoint/url" \
 -H "Content-Type: application/json" \
@@ -18,28 +20,33 @@ curl -X METHOD "http://localhost:PORT/api/endpoint/url" \
 }'
 - **Example Response**
 ```
+
 {
-  "success": "true",
-  "data": {
-    "field1": "value1",
-    "field2": "value2"
-  }
+"success": "true",
+"data": {
+"field1": "value1",
+"field2": "value2"
+}
 }
 
 ## Endpoints
 
 ### Login
+
 - **Method**: POST
 - **URL**: /api/auth/login
 - **Description**: Authenticates a user and returns a JWT token for subsequent requests.
 - **Request Body**:
+
 ```json
 {
-  "indentifier": "The email or username of the registered user",
+  "indentifier": "The email or roll number of the registered user",
   "password": "The unhashed password of the registered user"
 }
 ```
+
 - **Response**:
+
 ```json
 {
   "success": "true",

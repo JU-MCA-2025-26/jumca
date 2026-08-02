@@ -398,8 +398,7 @@
   }
   .portal-table td {
     padding: 0.625rem 0.75rem;
-    border-bottom: 1px solid
-      color-mix(in srgb, var(--color-border) 50%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
     color: var(--color-text-secondary);
   }
   .portal-table tr:last-child td {

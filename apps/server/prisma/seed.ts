@@ -3,19 +3,13 @@ import prisma from "../src/config/prisma.js";
 import { $Enums } from "../src/generated/client.js";
 
 async function main() {
+  const password = await bcrypt.hash("admin123", 12);
 
-  const password = await bcrypt.hash(
-    "admin123",
-    12
-  );
-
-  const isAdminExists = await prisma.user.findUnique(
-    {
-      where: {
-        email: "admin@jumca.com"
-      }
-    }
-  );
+  const isAdminExists = await prisma.user.findUnique({
+    where: {
+      email: "admin@jumca.com",
+    },
+  });
 
   if (isAdminExists) {
     console.log("Administrator user already exists.");
@@ -23,9 +17,7 @@ async function main() {
   }
 
   await prisma.user.create({
-
     data: {
-
       fullName: "Administrator",
 
       email: "admin@jumca.com",
@@ -36,12 +28,9 @@ async function main() {
 
       role: $Enums.Role.ADMIN,
 
-      batch: "2025-27"
-
-    }
-
+      batch: "2025-27",
+    },
   });
-
 }
 
 main();

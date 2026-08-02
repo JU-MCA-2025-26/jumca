@@ -2,7 +2,8 @@ import type { Response, NextFunction } from "express";
 import type { AuthRequest } from "@server/types/AuthRequest";
 import { Role } from "@server/generated/client";
 
-export const authorize = (...roles: Role[]) =>
+export const authorize =
+  (...roles: Role[]) =>
   (req: AuthRequest, res: Response, next: NextFunction) => {
     if (!req.user) {
       return res.status(401).json({ message: "Unauthorized" });

@@ -5,14 +5,12 @@
   "type": "module",
   "main": "src/server.ts",
   "scripts": {
-    "dev":     "tsx --watch src/server.ts",
-    "build":   "tsc",
-    "lint":    "oxlint",
-    "lint:fix": "oxlint --fix",
+    "dev": "tsx --watch src/server.ts",
+    "build": "tsc",
     "db:generate": "prisma generate --config prisma.config.ts",
-    "db:migrate":  "prisma migrate dev --config prisma.config.ts",
-    "db:seed":     "tsx prisma/seed.ts",
-    "db:studio":   "prisma studio --config prisma.config.ts"
+    "db:migrate": "prisma migrate dev --config prisma.config.ts",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:studio": "prisma studio --config prisma.config.ts"
   },
   "dependencies": {
     "@jumca/shared": "*",
