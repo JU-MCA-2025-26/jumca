@@ -5,9 +5,139 @@
 
 generator client {
   provider = "prisma-client"
-  output   = "../generated/prisma"
+  output   = "../src/generated"
 }
 
 datasource db {
   provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  STUDENT
+  ALUMNI
+}
+
+enum ResourceCategory {
+  NOTES
+  PREVIOUS_YEAR_QUESTION
+  ASSIGNMENT
+  REFERENCE_BOOK
+  OTHER
+}
+
+// User & Profile Models
+
+model User {
+  id         String   @id @default(cuid())
+  rollNumber String   @unique
+  email      String   @unique
+  password   String
+  fullName   String
+  role       Role
+  batch      String
+
+  profile    Profile?
+  resources  Resource[]
+  interviews InterviewExperience[]
+
+  refreshToken String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Profile {
+  id         String  @id @default(cuid())
+  bio        String?
+  github     String?
+  leetcode   String?
+  gfg        String?
+  codeforces String?
+
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// Course & Resource Models
+
+model Course {
+  id   String @id @default(cuid())
+  name String @unique
+
+  resources Resource[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Resource {
+  id          String           @id @default(cuid())
+  title       String
+  description String?
+  fileUrl     String
+  category    ResourceCategory
+  approved    Boolean          @default(false)
+  downloads   Int              @default(0)
+
+  courseId String
+  course   Course @relation(fields: [courseId], references: [id])
+
+  uploaderId String
+  uploader   User   @relation(fields: [uploaderId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Company & Interview Experience Models
+
+model Company {
+  id   String @id @default(cuid())
+  name String @unique
+
+  interviews InterviewExperience[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model InterviewExperience {
+  id        String  @id @default(cuid())
+  role      String
+  ctc       String?
+  outcome   String
+  narrative String
+  approved  Boolean @default(false)
+
+  companyId String
+  company   Company @relation(fields: [companyId], references: [id])
+
+  authorId String
+  author   User   @relation(fields: [authorId], references: [id])
+
+  rounds InterviewRound[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model InterviewRound {
+  id          String  @id @default(cuid())
+  roundName   String  // I was thinking it would be like "Online Assessment", "Technical 1", "HR"
+  orderNumber Int     // Order of the round (like 1, 2, 3, etc)
+  description String?
+
+  interviewExperienceId String
+  interviewExperience   InterviewExperience @relation(fields: [interviewExperienceId], references: [id], onDelete: Cascade)
+
+  questions Question[]
+}
+
+model Question {
+  id       String  @id @default(cuid())
+  text     String
+  solution String?
+
+  roundId String
+  round   InterviewRound @relation(fields: [roundId], references: [id], onDelete: Cascade)
 }
