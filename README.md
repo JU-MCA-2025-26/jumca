@@ -60,7 +60,7 @@ npm run client:dev              # backend only
 
 ```bash
 # Build and start containers (run from repo root)
-docker compose up --build -d 
+docker compose up --build -d
 
 # After running this, you can very easily api test using postman or ui test on the browser. The server will be available at http://localhost:5000 and the client at http://localhost:5173
 
