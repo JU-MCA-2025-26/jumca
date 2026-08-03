@@ -31,10 +31,5 @@
     "prettier": "^3.9.6",
     "turbo": "^2.10.8"
   },
-  "devEngines": {
-    "packageManager": {
-      "name": "npm",
-      "version": "11.16.0"
-    }
-  }
+  "packageManager": "npm@11.16.0"
 }
