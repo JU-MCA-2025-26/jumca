@@ -20,6 +20,7 @@ services:
     build:
       context: .
       dockerfile: apps/server/Dockerfile
+    command: sh -c "npm run db:migrate && npm run db:seed && npm run dev"
     depends_on:
       postgres:
         condition: service_healthy
