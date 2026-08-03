@@ -1,4 +1,4 @@
-import { Role } from "./Role.js";
+import type { Role } from "./Role.js";
 import type { ApiResponse } from "./ApiResponse.js";
 
 interface LoginData {
@@ -11,7 +11,7 @@ interface LoginData {
     fullName: string;
     role: Role;
     batch: string;
-    refreshToken: string;
+    refreshToken: string | null;
     createdAt: Date;
     updatedAt: Date;
   };

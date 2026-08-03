@@ -1,5 +1,1 @@
-export enum Role {
-  STUDENT = "STUDENT",
-  ALUMNI = "ALUMNI",
-  ADMIN = "ADMIN",
-}
+export type Role = "STUDENT" | "ALUMNI" | "ADMIN";
