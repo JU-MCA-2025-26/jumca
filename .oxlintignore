@@ -1,0 +1,14 @@
+node_modules
+dist
+coverage
+build
+
+apps/server/prisma/migrations
+apps/server/generated
+
+*.config.js
+*.config.cjs
+*.config.mjs
+
+*.d.ts
+.turbo/cache

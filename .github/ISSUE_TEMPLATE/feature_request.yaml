@@ -1,0 +1,63 @@
+name: Feature Request
+description: Suggest a new feature or enhancement.
+title: "[FEATURE]: "
+labels:
+  - enhancement
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your suggestion!
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Feature Summary
+      placeholder: Describe the feature.
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Why is this feature needed?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: module
+    attributes:
+      label: Target Module
+      options:
+        - Auth
+        - Resources
+        - Profile
+        - Placement
+        - Admin
+        - Shared
+        - Frontend
+        - Backend
+
+  - type: input
+    id: requirement
+    attributes:
+      label: Related SRS Requirement
+      placeholder: REQ-19
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Solution
+      placeholder: Describe your proposed implementation.
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context

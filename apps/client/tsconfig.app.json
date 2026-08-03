@@ -4,14 +4,14 @@
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "es2023",
     "lib": ["ES2023", "DOM"],
-    "module": "esnext",
+    "module": "nodenext",
     "types": ["vite/client"],
     "allowArbitraryExtensions": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    "moduleResolution": "nodenext",
     "noEmit": true,
+    "allowImportingTsExtensions": true,
     "jsx": "react-jsx",
 
     /* Linting */
@@ -21,11 +21,12 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Path aliases — override base for client-relative resolution */
-    "baseUrl": "../..",
     "paths": {
-      "@shared/*": ["./packages/shared/src/*"],
-      "@client/*": ["./apps/client/src/*"]
+      "@/*": ["./src/*"],
+      "@jumca/shared": ["../../packages/shared/src/index.ts"],
+      "@jumca/shared/*": ["../../packages/shared/src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }

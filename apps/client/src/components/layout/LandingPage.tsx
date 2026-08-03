@@ -48,8 +48,7 @@ function LandingPage() {
           margin: 0,
         }}
       >
-        huhh hahh,{" "}
-        <span style={{ color: "var(--color-primary)" }}>huhh hahh</span>
+        huhh hahh, <span style={{ color: "var(--color-primary)" }}>huhh hahh</span>
       </p>
 
       <div

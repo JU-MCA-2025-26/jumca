@@ -1,36 +1,25 @@
 import bcrypt from "bcrypt";
-import prisma from "@server/config/prisma";
-import {
-  generateAccessToken,
-  generateRefreshToken,
-} from "@server/config/jwt";
-import { ApiError } from "@server/utils/ApiError";
+import prisma from "@/config/prisma.js";
+import { generateAccessToken, generateRefreshToken } from "@/config/jwt.js";
+import { ApiError } from "@/utils/ApiError.js";
 
 export class AuthService {
   async login(identifier: string, password: string) {
     const user = await prisma.user.findFirst({
       where: {
-        OR: [
-          { email: identifier },
-          { rollNumber: identifier }
-        ]
-      }
+        OR: [{ email: identifier }, { rollNumber: identifier }],
+      },
     });
 
-    if (!user)
-      throw new ApiError(404, "User not found");
+    if (!user) throw new ApiError(404, "User not found");
 
-    const validPassword = await bcrypt.compare(
-      password,
-      user.password
-    );
+    const validPassword = await bcrypt.compare(password, user.password);
 
-    if (!validPassword)
-      throw new ApiError(401, "Invalid password");
+    if (!validPassword) throw new ApiError(401, "Invalid password");
 
     const payload = {
       userId: user.id,
-      role: user.role
+      role: user.role,
     };
 
     const accessToken = generateAccessToken(payload);
@@ -39,17 +28,17 @@ export class AuthService {
 
     await prisma.user.update({
       where: {
-        id: user.id
+        id: user.id,
       },
       data: {
-        refreshToken
-      }
+        refreshToken,
+      },
     });
 
     return {
       accessToken,
       refreshToken,
-      user
+      user,
     };
   }
 }

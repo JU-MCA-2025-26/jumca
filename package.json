@@ -6,16 +6,30 @@
     "packages/*"
   ],
   "scripts": {
-    "dev":    "npm run dev   --workspaces --if-present",
-    "build":  "npm run build --workspaces --if-present",
-    "lint":   "npm run lint  --workspaces --if-present",
-    "client": "npm --workspace=apps/client run dev",
-    "server": "npm --workspace=apps/server run dev"
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "client:dev": "npm --workspace @jumca/client run dev",
+    "server:dev": "npm --workspace @jumca/server run dev",
+    "client:build": "npm --workspace @jumca/client run build",
+    "server:build": "npm --workspace @jumca/server run build",
+    "server:prisma:generate": "npm --workspace @jumca/server run db:generate",
+    "server:prisma:migrate": "npm --workspace @jumca/server run db:migrate",
+    "server:prisma:studio": "npm --workspace @jumca/server run db:studio",
+    "server:prisma:seed": "npm --workspace @jumca/server run db:seed"
   },
   "allowScripts": {
     "@prisma/engines": true,
     "prisma": true,
     "bcrypt": true,
     "esbuild": true
-  }
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6",
+    "turbo": "^2.10.8"
+  },
+  "packageManager": "npm@11.16.0"
 }

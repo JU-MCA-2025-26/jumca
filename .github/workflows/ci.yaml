@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+
+  pull_request:
+    branches:
+      - develop
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Upgrade npm to match devEngines
+        run: sudo npm install -g npm@11.16.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: copy env.example to .env
+        run: cp apps/server/.env.example apps/server/.env
+
+      - name: Generate Prisma Client
+        working-directory: apps/server
+        run: npx prisma generate
+
+      - name: Build the packages
+        run: npm run build

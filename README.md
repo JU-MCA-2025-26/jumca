@@ -42,27 +42,25 @@ cp apps/server/.env.example apps/server/.env
 cp apps/client/.env.example apps/client/.env.local
 
 # 3. Generate Prisma client and run migrations
-cd apps/server
-npm run db:generate
-npm run db:migrate    # creates tables
-npm run db:seed       # seeds admin user
+npm run server:prisma:migrate    # creates tables
+npm run server:prisma:generate   # generates Prisma client
+npm run server:prisma:seed       # seeds admin user
 
 # 4. Start both dev servers from repo root
-cd ../..
-npm run dev           # client → :5173  |  server → :5000
+npm run dev                     # client → :5173  |  server → :5000
 
 # Or start individually:
-npm run client        # frontend only
-npm run server        # backend only
+npm run server:dev              # frontend only
+npm run client:dev              # backend only
 ```
 
 ## Database commands (run from apps/server)
 
 ```bash
-npm run db:generate   # regenerate Prisma client after schema changes
-npm run db:migrate    # create and apply a new migration
-npm run db:seed       # seed initial data (admin user)
-npm run db:studio     # open Prisma Studio in browser
+npm run server:prisma:generate   # regenerate Prisma client after schema changes
+npm run server:prisma:migrate    # create and apply a new migration
+npm run server:prisma:seed       # seed initial data (admin user)
+npm run server:prisma:studio     # open Prisma Studio in browser
 ```
 
 ## Default admin credentials (seeded)

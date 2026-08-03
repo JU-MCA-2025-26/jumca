@@ -1,0 +1,61 @@
+name: Development Task
+description: Internal engineering task.
+title: "[TASK]: "
+labels:
+  - task
+
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+    validations:
+      required: true
+
+  - type: dropdown
+    id: module
+    attributes:
+      label: Module
+      options:
+        - Auth
+        - Resources
+        - Profile
+        - Placement
+        - Admin
+        - Shared
+        - API
+        - Database
+        - Frontend
+        - Backend
+    validations:
+      required: true
+
+  - type: input
+    id: requirement
+    attributes:
+      label: Related SRS Requirement
+      placeholder: REQ-24
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      placeholder: |
+        - [ ]
+        - [ ]
+        - [ ]
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Ready
+      options:
+        - label: Acceptance criteria are defined.
+          required: true
