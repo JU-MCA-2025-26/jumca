@@ -9,7 +9,7 @@ package-lock.json
 
 *.log
 
-apps/server/generated
+apps/server/src/generated
 apps/server/prisma/migrations
 
 .env
